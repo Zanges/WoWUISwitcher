@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace WoWUISwitcher
 {
@@ -53,25 +54,35 @@ namespace WoWUISwitcher
 
         private void RefreshComboUiSelect()
         {
+            System.Diagnostics.Debug.WriteLine("REFRESH");
             uiList = new List<string>();
 
             string[] possibleUIs = Directory.GetDirectories(Settings.GetSetting("UIDir"));
 
             foreach (string possibleUi in possibleUIs)
             {
-                if (possibleUi == "_Global")
+                if (possibleUi != "_Global")
                 {
-                    return;
+                    System.Diagnostics.Debug.WriteLine(possibleUi);
+                    string[] subDirectoriesAbsolute = Directory.GetDirectories(possibleUi);
+                    List<string> subDirectories = new List<string>();
+                    foreach (string directory in subDirectoriesAbsolute)
+                    {
+                        subDirectories.Add(directory.Split(Path.DirectorySeparatorChar).Last());
+                    }
+                    if (subDirectories.Contains("Interface") && subDirectories.Contains("WTF"))
+                    {
+                        uiList.Add(possibleUi);
+                    }
                 }
 
-                string[] subDirectories = Directory.GetDirectories(possibleUi);
-                if (subDirectories.Contains("Interface") && subDirectories.Contains("WTF"))
-                {
-                    uiList.Append(possibleUi);
-                }
             }
-            
-            Console.WriteLine();
+
+            System.Diagnostics.Debug.WriteLine("");
+            foreach (string str in uiList)
+            {
+                System.Diagnostics.Debug.WriteLine(str);
+            }
         }
     }
 }
