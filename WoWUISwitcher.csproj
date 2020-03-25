@@ -6,4 +6,13 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <OutputPath></OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FolderBrowserForWPF" Version="1.0.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    </ItemGroup>
+
 </Project>

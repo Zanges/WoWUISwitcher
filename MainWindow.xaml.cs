@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,57 @@ namespace WoWUISwitcher
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<string> uiList = new List<string>();
+
         public MainWindow()
         {
             InitializeComponent();
+
+            ComboUiSelect.ItemsSource = uiList;
+
+            RefreshComboUiSelect();
+        }
+
+        private void buttonLoadOnly_Click(object sender, RoutedEventArgs e)
+        {
+            //LoadWoWUI.Load();
+        }
+
+        private void buttonLoadLaunch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonSettings_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsWindow settingsWindow = new SettingsWindow();
+            if (settingsWindow.ShowDialog() == true)
+            {
+                RefreshComboUiSelect();
+            }
+        }
+
+        private void RefreshComboUiSelect()
+        {
+            uiList = new List<string>();
+
+            string[] possibleUIs = Directory.GetDirectories(Settings.GetSetting("UIDir"));
+
+            foreach (string possibleUi in possibleUIs)
+            {
+                if (possibleUi == "_Global")
+                {
+                    return;
+                }
+
+                string[] subDirectories = Directory.GetDirectories(possibleUi);
+                if (subDirectories.Contains("Interface") && subDirectories.Contains("WTF"))
+                {
+                    uiList.Append(possibleUi);
+                }
+            }
+            
+            Console.WriteLine();
         }
     }
 }
