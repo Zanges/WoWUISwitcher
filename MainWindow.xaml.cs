@@ -28,8 +28,6 @@ namespace WoWUISwitcher
         {
             InitializeComponent();
 
-            ComboUiSelect.ItemsSource = uiList;
-
             RefreshComboUiSelect();
         }
 
@@ -54,7 +52,6 @@ namespace WoWUISwitcher
 
         private void RefreshComboUiSelect()
         {
-            System.Diagnostics.Debug.WriteLine("REFRESH");
             uiList = new List<string>();
 
             string[] possibleUIs = Directory.GetDirectories(Settings.GetSetting("UIDir"));
@@ -63,26 +60,24 @@ namespace WoWUISwitcher
             {
                 if (possibleUi != "_Global")
                 {
-                    System.Diagnostics.Debug.WriteLine(possibleUi);
                     string[] subDirectoriesAbsolute = Directory.GetDirectories(possibleUi);
+                    
                     List<string> subDirectories = new List<string>();
+
                     foreach (string directory in subDirectoriesAbsolute)
                     {
                         subDirectories.Add(directory.Split(Path.DirectorySeparatorChar).Last());
                     }
+
                     if (subDirectories.Contains("Interface") && subDirectories.Contains("WTF"))
                     {
-                        uiList.Add(possibleUi);
+                        uiList.Add(possibleUi.Split(Path.DirectorySeparatorChar).Last());
                     }
                 }
 
             }
 
-            System.Diagnostics.Debug.WriteLine("");
-            foreach (string str in uiList)
-            {
-                System.Diagnostics.Debug.WriteLine(str);
-            }
+            ComboUiSelect.ItemsSource = uiList;
         }
     }
 }
