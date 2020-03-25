@@ -79,5 +79,10 @@ namespace WoWUISwitcher
 
             ComboUiSelect.ItemsSource = uiList;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshComboUiSelect();
+        }
     }
 }

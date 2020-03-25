@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WoWUISwitcher"
         mc:Ignorable="d"
-        Title="WoW UI Switcher" Height="150" Width="485" WindowStyle="SingleBorderWindow" ResizeMode="NoResize" SizeToContent="Manual">
+        Title="WoW UI Switcher" Height="150" Width="505" WindowStyle="SingleBorderWindow" ResizeMode="NoResize" SizeToContent="Manual">
     <Grid>
         <Grid VerticalAlignment="Top" Margin="0,10,0,0">
             <Grid HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0">
                 <Label Content="Select UI:" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <ComboBox x:Name="ComboUiSelect" Width="150" Margin="0,29,0,0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Height="24"/>
+                <ComboBox x:Name="ComboUiSelect" Width="150" Margin="0,29,0,0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24"/>
+                <Button Content="R" HorizontalAlignment="Right" Margin="150,0,0,0" VerticalAlignment="Bottom" Height="24" Width="24" Click="Button_Click"/>
 
             </Grid>
             <Button x:Name="ButtonLoadOnly" Content="Just Load UI" HorizontalAlignment="Right" Margin="0,0,156,0" VerticalAlignment="Center" Height="64" Width="140" FontSize="18" Click="buttonLoadOnly_Click"/>
