@@ -23,6 +23,7 @@ namespace WoWUISwitcher
     public partial class MainWindow : Window
     {
         private List<string> uiList = new List<string>();
+        private Dictionary<string, string> uiPathDictionary = new Dictionary<string, string>();
 
         public MainWindow()
         {
@@ -31,17 +32,22 @@ namespace WoWUISwitcher
             RefreshComboUiSelect();
         }
 
-        private void buttonLoadOnly_Click(object sender, RoutedEventArgs e)
+        private void ButtonLoadOnly_Click(object sender, RoutedEventArgs e)
         {
-            //LoadWoWUI.Load();
+            LoadUi();
         }
 
-        private void buttonLoadLaunch_Click(object sender, RoutedEventArgs e)
+        private void ButtonLoadLaunch_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void buttonSettings_Click(object sender, RoutedEventArgs e)
+        private void LoadUi()
+        {
+            LoadWoWUI.Load(Settings.GetSetting("WoWDir"), uiPathDictionary[ComboUiSelect.Text]); // TODO potential Dictionary has no key
+        }
+
+        private void ButtonSettings_Click(object sender, RoutedEventArgs e)
         {
             SettingsWindow settingsWindow = new SettingsWindow();
             if (settingsWindow.ShowDialog() == true)
@@ -52,26 +58,30 @@ namespace WoWUISwitcher
 
         private void RefreshComboUiSelect()
         {
+            // Clear Old Data
             uiList = new List<string>();
+            uiPathDictionary = new Dictionary<string, string>();
 
+            // Get all Subfolders
             string[] possibleUIs = Directory.GetDirectories(Settings.GetSetting("UIDir"));
 
             foreach (string possibleUi in possibleUIs)
             {
-                if (possibleUi != "_Global")
+                if (possibleUi != "_Global") // filter out the global folder
                 {
+                    // get sub-directory names
                     string[] subDirectoriesAbsolute = Directory.GetDirectories(possibleUi);
-                    
                     List<string> subDirectories = new List<string>();
-
                     foreach (string directory in subDirectoriesAbsolute)
                     {
                         subDirectories.Add(directory.Split(Path.DirectorySeparatorChar).Last());
                     }
 
-                    if (subDirectories.Contains("Interface") && subDirectories.Contains("WTF"))
+                    if (subDirectories.Contains("Interface") && subDirectories.Contains("WTF")) // filter to keep only correct directories
                     {
-                        uiList.Add(possibleUi.Split(Path.DirectorySeparatorChar).Last());
+                        string uiName = possibleUi.Split(Path.DirectorySeparatorChar).Last();
+                        uiList.Add(uiName);
+                        uiPathDictionary[uiName] = possibleUi;
                     }
                 }
 
@@ -80,7 +90,7 @@ namespace WoWUISwitcher
             ComboUiSelect.ItemsSource = uiList;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
             RefreshComboUiSelect();
         }
