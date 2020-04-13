@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 using Path = System.IO.Path;
 
 namespace WoWUISwitcher
@@ -39,7 +40,10 @@ namespace WoWUISwitcher
 
         private void ButtonLoadLaunch_Click(object sender, RoutedEventArgs e)
         {
+            LoadUi(); 
 
+            //LaunchWoW.Launch();
+            LaunchWoW.LaunchCustomized();
         }
 
         private void LoadUi()
