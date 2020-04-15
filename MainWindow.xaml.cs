@@ -1,25 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-using Path = System.IO.Path;
 
 namespace WoWUISwitcher
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    ///     Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -40,24 +27,25 @@ namespace WoWUISwitcher
 
         private void ButtonLoadLaunch_Click(object sender, RoutedEventArgs e)
         {
-            LoadUi(); 
+            LoadUi();
 
-            //LaunchWoW.Launch();
-            LaunchWoW.LaunchCustomized();
+            LaunchWoW.Launch();
         }
 
         private void LoadUi()
         {
-            LoadWoWUI.Load(Settings.GetSetting("WoWDir"), uiPathDictionary[ComboUiSelect.Text]); // TODO potential Dictionary has no key
+            if (uiList.Count > 0)
+            {
+                LoadWoWUI.Load(Settings.GetSetting("WoWDir"),
+                                uiPathDictionary[ComboUiSelect.Text]);
+            }
+            
         }
 
         private void ButtonSettings_Click(object sender, RoutedEventArgs e)
         {
-            SettingsWindow settingsWindow = new SettingsWindow();
-            if (settingsWindow.ShowDialog() == true)
-            {
-                RefreshComboUiSelect();
-            }
+            var settingsWindow = new SettingsWindow();
+            if (settingsWindow.ShowDialog() == true) RefreshComboUiSelect();
         }
 
         private void RefreshComboUiSelect()
@@ -67,31 +55,38 @@ namespace WoWUISwitcher
             uiPathDictionary = new Dictionary<string, string>();
 
             // Get all Subfolders
-            string[] possibleUIs = Directory.GetDirectories(Settings.GetSetting("UIDir"));
+            var possibleUIs = Directory.GetDirectories(Settings.GetSetting("UIDir"));
 
-            foreach (string possibleUi in possibleUIs)
-            {
+            foreach (var possibleUi in possibleUIs)
                 if (possibleUi != "_Global") // filter out the global folder
                 {
                     // get sub-directory names
-                    string[] subDirectoriesAbsolute = Directory.GetDirectories(possibleUi);
-                    List<string> subDirectories = new List<string>();
-                    foreach (string directory in subDirectoriesAbsolute)
-                    {
+                    var subDirectoriesAbsolute = Directory.GetDirectories(possibleUi);
+                    var subDirectories = new List<string>();
+                    foreach (var directory in subDirectoriesAbsolute)
                         subDirectories.Add(directory.Split(Path.DirectorySeparatorChar).Last());
-                    }
 
-                    if (subDirectories.Contains("Interface") && subDirectories.Contains("WTF")) // filter to keep only correct directories
+                    if (subDirectories.Contains("Interface") && subDirectories.Contains("WTF")
+                    ) // filter to keep only correct directories
                     {
-                        string uiName = possibleUi.Split(Path.DirectorySeparatorChar).Last();
+                        var uiName = possibleUi.Split(Path.DirectorySeparatorChar).Last();
                         uiList.Add(uiName);
                         uiPathDictionary[uiName] = possibleUi;
                     }
                 }
 
-            }
-
             ComboUiSelect.ItemsSource = uiList;
+
+            if (uiList.Count > 0)
+            {
+                var path = SymbolicLink.GetRealPath(Settings.GetSetting("WoWDir") + "\\Interface");
+                var splitPath = path.Split(Path.DirectorySeparatorChar);
+                var name = splitPath[^2];
+
+                if (uiList.Contains(name))
+                    ComboUiSelect.SelectedItem = name;
+                //ComboUiSelect.Text
+            }
         }
 
         private void RefreshButton_Click(object sender, RoutedEventArgs e)

@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using FolderBrowserForWPF;
 
 namespace WoWUISwitcher
 {
     /// <summary>
-    /// Interaction logic for SettingsWindow.xaml
+    ///     Interaction logic for SettingsWindow.xaml
     /// </summary>
     public partial class SettingsWindow : Window
     {
@@ -27,12 +19,18 @@ namespace WoWUISwitcher
 
         private void ButtonWoWDir_Click(object sender, RoutedEventArgs e)
         {
-            TextboxWoWDir.Text = PickFolderDialog(TextboxWoWDir.Text.Equals("") ? AppDomain.CurrentDomain.BaseDirectory : TextboxWoWDir.Text, "Pick WoW Directory");
+            TextboxWoWDir.Text =
+                PickFolderDialog(
+                    TextboxWoWDir.Text.Equals("") ? AppDomain.CurrentDomain.BaseDirectory : TextboxWoWDir.Text,
+                    "Pick WoW Directory");
         }
 
         private void ButtonUIDir_Click(object sender, RoutedEventArgs e)
         {
-            TextboxUIDir.Text = PickFolderDialog(TextboxUIDir.Text.Equals("") ? AppDomain.CurrentDomain.BaseDirectory : TextboxUIDir.Text, "Pick UI Directory");
+            TextboxUIDir.Text =
+                PickFolderDialog(
+                    TextboxUIDir.Text.Equals("") ? AppDomain.CurrentDomain.BaseDirectory : TextboxUIDir.Text,
+                    "Pick UI Directory");
         }
 
         private void buttonOk_Click(object sender, RoutedEventArgs e)
@@ -50,18 +48,15 @@ namespace WoWUISwitcher
 
         private string PickFolderDialog(string startDir, string dialogTitle = "Pick Directory")
         {
-            string output = startDir;
+            var output = startDir;
 
-            var folderBrowser = new FolderBrowserForWPF.Dialog
+            var folderBrowser = new Dialog
             {
                 Title = dialogTitle,
                 FileName = startDir
             };
 
-            if (folderBrowser.ShowDialog() == true)
-            {
-                output = folderBrowser.FileName;
-            }
+            if (folderBrowser.ShowDialog() == true) output = folderBrowser.FileName;
 
             return output;
         }

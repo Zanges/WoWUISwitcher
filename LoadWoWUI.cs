@@ -1,9 +1,6 @@
-﻿using System;
-using System.Configuration;
-
-namespace WoWUISwitcher
+﻿namespace WoWUISwitcher
 {
-    static class LoadWoWUI
+    internal static class LoadWoWUI
     {
         public static void Load(string WoWDir, string UIDir)
         {

@@ -2,14 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90cbe03c-a390-489e-b4e4-ceb2b3ef9c65" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MainWindow.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MainWindow.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WoWUISwitcher.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WoWUISwitcher.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WoWUISwitcher/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WoWUISwitcher/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WoWUISwitcher/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WoWUISwitcher/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/WoWUISwitcher/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/WoWUISwitcher/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/WoWUISwitcher/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/WoWUISwitcher/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/App.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaunchWoW.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LaunchWoW.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoadWoWUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LoadWoWUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Settings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Settings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SettingsWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/SettingsWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SettingsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SettingsWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymbolicLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SymbolicLink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UpgradeLog.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WindowHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoWUISwitcher.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WoWUISwitcher.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/netcoreapp3.1/Newtonsoft.Json.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/netcoreapp3.1/WoWUISwitcher.deps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/netcoreapp3.1/WoWUISwitcher.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/netcoreapp3.1/WoWUISwitcher.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/netcoreapp3.1/WoWUISwitcher.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/netcoreapp3.1/WoWUISwitcher.runtimeconfig.dev.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/netcoreapp3.1/WoWUISwitcher.runtimeconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/netcoreapp3.1/settings.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +38,10 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/MainWindow.xaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Settings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SettingsWindow.xaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/LoadWoWUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SymbolicLink.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MainWindow.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/App.xaml" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -28,6 +49,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/MainWindow.xaml" />
+        <option value="$PROJECT_DIR$/Settings.cs" />
+        <option value="$PROJECT_DIR$/MainWindow.xaml.cs" />
       </list>
     </option>
   </component>
@@ -43,6 +66,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TWShift.3" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
   </component>
   <component name="RunManager">
     <configuration name="WoWUISwitcher" type="DotNetProject" factoryName=".NET Project">
@@ -75,41 +99,53 @@
       <option name="presentableId" value="Default" />
       <updated>1585090273022</updated>
       <workItem from="1585090279689" duration="345000" />
+      <workItem from="1586815242893" duration="274000" />
+      <workItem from="1586961875829" duration="1276000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1340" height="266" key="GridCell.Tab.0.bottom" timestamp="1585090626368">
+    <state x="1467" y="546" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1586962942785">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1340" height="266" key="GridCell.Tab.0.bottom/0.0.3440.1400/3440.-380.1080.1880@0.0.3440.1400" timestamp="1585090626368" />
-    <state width="1340" height="266" key="GridCell.Tab.0.center" timestamp="1585090626368">
+    <state x="1467" y="546" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.3440.1400/3440.-380.1080.1880@0.0.3440.1400" timestamp="1586962942785" />
+    <state width="3397" height="399" key="GridCell.Tab.0.bottom" timestamp="1586963143964">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1340" height="266" key="GridCell.Tab.0.center/0.0.3440.1400/3440.-380.1080.1880@0.0.3440.1400" timestamp="1585090626368" />
-    <state width="1340" height="266" key="GridCell.Tab.0.left" timestamp="1585090626368">
+    <state width="3397" height="399" key="GridCell.Tab.0.bottom/0.0.3440.1400/3440.-380.1080.1880@0.0.3440.1400" timestamp="1586963143964" />
+    <state width="3397" height="399" key="GridCell.Tab.0.center" timestamp="1586963143964">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1340" height="266" key="GridCell.Tab.0.left/0.0.3440.1400/3440.-380.1080.1880@0.0.3440.1400" timestamp="1585090626368" />
-    <state width="1340" height="266" key="GridCell.Tab.0.right" timestamp="1585090626368">
+    <state width="3397" height="399" key="GridCell.Tab.0.center/0.0.3440.1400/3440.-380.1080.1880@0.0.3440.1400" timestamp="1586963143964" />
+    <state width="3397" height="399" key="GridCell.Tab.0.left" timestamp="1586963143964">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1340" height="266" key="GridCell.Tab.0.right/0.0.3440.1400/3440.-380.1080.1880@0.0.3440.1400" timestamp="1585090626368" />
+    <state width="3397" height="399" key="GridCell.Tab.0.left/0.0.3440.1400/3440.-380.1080.1880@0.0.3440.1400" timestamp="1586963143964" />
+    <state width="3397" height="399" key="GridCell.Tab.0.right" timestamp="1586963143964">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3397" height="399" key="GridCell.Tab.0.right/0.0.3440.1400/3440.-380.1080.1880@0.0.3440.1400" timestamp="1586963143964" />
+    <state x="683" y="340" key="SettingsEditor" timestamp="1586961928482">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="683" y="340" key="SettingsEditor/0.0.3440.1400/3440.-380.1080.1880@0.0.3440.1400" timestamp="1586961928482" />
   </component>
 </project>
